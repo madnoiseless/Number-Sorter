@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Number Sorter</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      body {
+        font-family: "Inter", sans-serif;
+        background-color: #f0f4f8;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        margin: 0;
+        padding: 20px;
+        box-sizing: border-box;
+      }
+      .container {
+        background-color: #ffffff;
+        padding: 30px;
+        border-radius: 12px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        width: 100%;
+        max-width: 500px;
+        text-align: center;
+      }
+      input[type="text"] {
+        padding: 12px;
+        border: 1px solid #cbd5e1;
+        border-radius: 8px;
+        width: calc(100% - 24px);
+        margin-bottom: 20px;
+        font-size: 16px;
+        transition: border-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+      }
+      input[type="text"]:focus {
+        outline: none;
+        border-color: #3b82f6;
+        box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.25);
+      }
+      button {
+        background-color: #3b82f6;
+        color: #ffffff;
+        padding: 12px 24px;
+        border: none;
+        border-radius: 8px;
+        font-size: 18px;
+        cursor: pointer;
+        transition: background-color 0.3s ease-in-out,
+          transform 0.2s ease-in-out;
+      }
+      button:hover {
+        background-color: #2563eb;
+        transform: translateY(-2px);
+      }
+      button:active {
+        transform: translateY(0);
+      }
+      #result {
+        margin-top: 30px;
+        padding: 15px;
+        background-color: #e2e8f0;
+        border-radius: 8px;
+        min-height: 50px;
+        font-size: 18px;
+        color: #1e293b;
+        text-align: left;
+        word-wrap: break-word; /* Ensures long numbers wrap */
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container rounded-xl">
+      <h1 class="text-3xl font-bold mb-6 text-gray-800">Number Sorter</h1>
+      <p class="text-gray-600 mb-4">
+        Enter numbers separated by commas (e.g., 5, 2, 8, 1, 9)
+      </p>
+      <input type="text" id="numbersInput" placeholder="Enter numbers here" />
+      <button onclick="sortNumbers()" class="rounded-lg">Sort Numbers</button>
+      <div id="result" class="rounded-lg"></div>
+    </div>
+
+    <script>
+      /**
+       * Function to sort numbers entered by the user.
+       * It parses the input string, converts valid numbers to an array,
+       * sorts them numerically, and displays the result.
+       */
+      function sortNumbers() {
+        const inputElement = document.getElementById("numbersInput");
+        const resultElement = document.getElementById("result");
+        const inputValue = inputElement.value;
+
+        // Clear previous result
+        resultElement.textContent = "";
+        resultElement.style.color = "#1e293b"; // Reset color
+
+        // Check if input is empty
+        if (inputValue.trim() === "") {
+          resultElement.textContent = "Please enter some numbers.";
+          resultElement.style.color = "#dc2626"; // Red color for error
+          return;
+        }
+
+        // Split the input string by commas and trim whitespace from each part
+        const numberStrings = inputValue.split(",").map((s) => s.trim());
+
+        // Convert string parts to numbers, filtering out non-numeric entries
+        const numbers = numberStrings
+          .map((str) => parseFloat(str))
+          .filter((num) => !isNaN(num));
+
+        // Check if any valid numbers were found
+        if (numbers.length === 0) {
+          resultElement.textContent =
+            "No valid numbers found. Please enter comma-separated numbers.";
+          resultElement.style.color = "#dc2626"; // Red color for error
+          return;
+        }
+
+        // Sort the array numerically (ascending order)
+        // The sort() method without a compare function sorts alphabetically.
+        // For numbers, a compare function (a - b) is essential for numerical sorting.
+        numbers.sort((a, b) => a - b);
+
+        // Display the sorted numbers
+        resultElement.textContent = "Sorted Numbers: " + numbers.join(", ");
+      }
+    </script>
+  </body>
+</html>
