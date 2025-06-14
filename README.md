@@ -1,33 +1,51 @@
-Number Sorter
-This is a simple web-based application that allows you to input a list of numbers, separated by commas, and then sorts them in ascending numerical order. It provides instant feedback on the sorted numbers.
+# Number Sorter
 
-Features
-Easy Input: Enter numbers as a comma-separated string.
+## Overview
 
-Numerical Sorting: Correctly sorts numbers (not alphabetically).
+The Number Sorter is a simple web application that allows users to input a list of numbers separated by commas. The application sorts these numbers in ascending order and displays the sorted result. It is designed with a clean and user-friendly interface using HTML, CSS, and JavaScript, enhanced by Tailwind CSS for styling.
 
-Input Validation: Handles empty input and non-numeric entries gracefully.
+## Features
 
-Clear Output: Displays the sorted numbers clearly.
+- **User Input**: Users can enter numbers in a text input field, separated by commas.
+- **Sorting Functionality**: The application sorts the entered numbers in ascending order.
+- **Error Handling**: It provides feedback for empty inputs and invalid entries.
+- **Responsive Design**: The layout is responsive and works well on various screen sizes.
 
-Responsive Design: Works well on various screen sizes due to Tailwind CSS.
+## Technologies Used
 
-How to Use
-Save the Code: Save the provided HTML code into a file named index.html (or any .html extension) on your computer.
+- **HTML**: For the structure of the web page.
+- **CSS**: For styling the application, with Tailwind CSS for utility-first styling.
+- **JavaScript**: For the sorting logic and dynamic updates to the user interface.
 
-Open in Browser: Open the index.html file using any web browser (e.g., Chrome, Firefox, Edge).
+## How to Use
 
-Enter Numbers: In the input field, type the numbers you want to sort, separating them with commas (e.g., 10, 5, 20, 2, 15).
+1. Visit the Number Sorter website at [https://madnoiseless.github.io/Number-Sorter/](https://madnoiseless.github.io/Number-Sorter/).
+2. Enter a list of numbers in the input field, separated by commas (e.g., `5, 2, 8, 1, 9`).
+3. Click the "Sort Numbers" button.
+4. The sorted numbers will be displayed below the input field.
 
-Click "Sort Numbers": Click the "Sort Numbers" button.
+## Installation
 
-View Result: The sorted list of numbers will appear below the button.
+To run this project locally, follow these steps:
 
-Technologies Used
-HTML5: For the basic structure of the web page.
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/madnoiseless/Number-Sorter.git
+   ```
+2. Navigate to the project directory:
+   ```bash
+   cd Number-Sorter
+   ```
+3. Open the `index.html` file in your web browser.
 
-CSS3: Custom styles for a clean and user-friendly interface.
+## Contributing
 
-Tailwind CSS: A utility-first CSS framework for rapid UI development and responsiveness.
+Contributions are welcome! If you have suggestions for improvements or new features, feel free to open an issue or submit a pull request.
 
-JavaScript (ES6+): For handling user input, sorting logic, and dynamic updates to the page.
+## License
+
+This project is open-source and available under the [MIT License](LICENSE).
+
+## Acknowledgments
+
+- Thanks to Tailwind CSS for providing a great utility-first CSS framework that enhances the design of this application.
